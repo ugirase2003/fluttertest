@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "49834426101",
+    "project_id": "fluttertest-ec275",
+    "storage_bucket": "fluttertest-ec275.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:49834426101:android:1d96596b3e394002d00fbc",
+        "android_client_info": {
+          "package_name": "com.example.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_1Yye9RILKjea68VTzplZkor5C7plAbw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
