@@ -1,3 +1,4 @@
+import 'package:app/commn_widgets/formInputBox.dart';
 import 'package:app/screens/signin/signin.dart';
 import 'package:app/services/authservices.dart';
 import 'package:app/helper/validator.dart';
@@ -66,24 +67,24 @@ class _SignupState extends State<Signup> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    custTextField(
+                    FormInputBox(
                       hint: "Username",
                       onSaved: (email) => _authData["username"] = email!,
                       validator: Validator.userNameValidator,
                     ),
-                    custTextField(
+                    FormInputBox(
                       hint: "Email",
                       onSaved: (email) => _authData["email"] = email!,
                       validator: Validator.emailValidator,
                     ),
-                    custTextField(
+                    FormInputBox(
                       hint: "Password",
                       controller: _passController,
                       obscureText: true,
                       onSaved: (pass) => _authData["pass"] = pass!,
                       validator: Validator.passValidator,
                     ),
-                    custTextField(
+                    FormInputBox(
                       hint: "Confirm Password",
                       obscureText: true,
                       focusNode: _focusNode,
@@ -155,35 +156,4 @@ class _SignupState extends State<Signup> {
       ),
     ));
   }
-}
-
-Widget custTextField({
-  required String hint,
-  TextEditingController? controller,
-  FocusNode? focusNode,
-  bool? obscureText,
-  void Function(String?)? onSaved,
-  String? Function(String?)? validator,
-}) {
-  return Column(
-    children: [
-      TextFormField(
-        onSaved: onSaved,
-        validator: validator,
-        focusNode: focusNode,
-        controller: controller,
-        obscureText: obscureText ?? false,
-        autovalidateMode: AutovalidateMode.onUserInteraction,
-        decoration: InputDecoration(
-            contentPadding:
-                const EdgeInsets.symmetric(vertical: 1, horizontal: 5),
-            border: const OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.blue)),
-            hintText: hint),
-      ),
-      const SizedBox(
-        height: 20,
-      )
-    ],
-  );
 }

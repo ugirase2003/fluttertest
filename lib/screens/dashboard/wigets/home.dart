@@ -1,3 +1,4 @@
+import 'package:app/screens/signin/signin.dart';
 import 'package:app/services/authservices.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +23,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      padding: EdgeInsets.all(20),
+      padding: const EdgeInsets.all(20),
       child: FutureBuilder(
         future: AuthServices().getUserData(),
         builder: (context, snapshot) =>
@@ -43,7 +44,13 @@ class _HomeState extends State<Home> {
                           const Spacer(),
                           ElevatedButton(
                               onPressed: () {
-                                FirebaseAuth.instance.signOut();
+                                FirebaseAuth.instance
+                                    .signOut()
+                                    .whenComplete(() => Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => SignIn(),
+                                        )));
                               },
                               child: const Text("Logout")),
                         ],
